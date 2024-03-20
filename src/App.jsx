@@ -24,16 +24,18 @@ import { Formulario } from './components/formulario'
 // });
 function App() {
 
-  const id = ['1','2','3','4']
-
   return (
     <>
       <Header/>
+<<<<<<< HEAD
       {/* <div>
         <Noticias id_n={id}/>
       </div>
       {Nombres} */}
       <Formulario></Formulario>
+=======
+      <Noticias/>
+>>>>>>> c81247c709aa879b61588cfb3ec66dfaafacf35a
     </>
   )
 }

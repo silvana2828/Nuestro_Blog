@@ -1,3 +1,5 @@
+import { noticias } from './noticias.json';
+import { Extras } from './extras';
 
 
 export function Noticias({ id_n }) {
