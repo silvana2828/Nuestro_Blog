@@ -1,0 +1,36 @@
+{
+    "noticias": [
+        {
+            "id": 1,
+            "titule": "Primera noticia",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat architecto porro iusto id, obcaecati at voluptate, assumenda cum aliquam saepe quisquam necessitatibus praesentium libero.",
+            "audio": "",
+            "img": "",
+            "archive": ""
+        },
+        {
+            "id": 2,
+            "titule": "Segunda noticia",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat architecto porro iusto id, obcaecati at voluptate, assumenda cum aliquam saepe quisquam necessitatibus praesentium libero.",
+            "audio": "",
+            "img": "",
+            "archive": ""
+        },
+        {
+            "id": 3,
+            "titule": "Tercera noticia",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat architecto porro iusto id, obcaecati at voluptate, assumenda cum aliquam saepe quisquam necessitatibus praesentium libero.",
+            "audio": "",
+            "img": "",
+            "archive": ""
+        },
+        {
+            "id": 4,
+            "titule": "Cuarta noticia",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat architecto porro iusto id, obcaecati at voluptate, assumenda cum aliquam saepe quisquam necessitatibus praesentium libero.",
+            "audio": "",
+            "img": "",
+            "archive": ""
+        }
+    ]
+}
