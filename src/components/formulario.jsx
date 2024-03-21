@@ -1,16 +1,31 @@
 import { Boton } from "./buttons/boton";
-import { Botones } from "./botones";
+import { Botones } from "./buttons/botones";
 import { object } from "prop-types";
+import { useState } from "react"; 
 export const Formulario = () => {
+  
+  const [noticia, setNoticia] = useState([]);
 
-  const saveData = (e) => {
-    const noticia = Object.fromEntries(new window.FormData(e.target));
-    console.log({noticia})
-    
+  const [titule, setTitule] = useState("");
+  const [content, setContent] = useState("");
+  const [img, setImg] = useState("");
+  const [archive, setArchive] = useState("");
+  const [audio, setAudio] = useState("");
+
+  const guardar = (e) => {
+    e.preventDefault();
+    document.querySelector("image").addEventListener("change", function () {
+      const reader = new FileReader();
+    })
+    var miObject = { titule, content, img }
+    setNoticias([...registros, mi])
   }
 
   return (
-    <form className="flex flex-col font-serif  w-[110vh] m-auto p-4 rounded-md mt-3 bg-jade-500/10" onSubmit={saveData}>
+    <form
+      className="flex flex-col font-serif  w-[110vh] m-auto p-4 rounded-md mt-3 bg-jade-500/10"
+      // onSubmit={saveData}
+    >
       <h2 className="text-center text-3xl mb-2 mt-4">--Nuestro Blog--</h2>
       <p className="mb-3 text-xl">Ingresa tu Post</p>
       <label className="mb-1">Título:</label>
@@ -29,11 +44,14 @@ export const Formulario = () => {
         placeholder="Ingresa el contenido de tu post"
       ></textarea>
       <div className="flex justify-between w-full">
-        <Botones>Imagen</Botones>
-        <Botones>Audio</Botones>
-        <Botones>Archivo</Botones>
+        <Botones id="image">Imagen</Botones>
+        <Botones id="audio">Audio</Botones>
+        <Botones id="archive">Archivo</Botones>
       </div>
-      <button className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white" type='submit'>
+      <button
+        className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white"
+        type="submit"
+      >
         Enviar
       </button>
     </form>
