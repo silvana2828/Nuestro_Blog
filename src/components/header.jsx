@@ -1,6 +1,5 @@
-import { Link, Routes, Route } from "react-router-dom";
-import { Formulario } from "./formulario";
-import { Noticias } from "./noticias";
+import { Link } from "react-router-dom";
+
 
 export function Header(){
     return (

@@ -1,7 +1,7 @@
 import { Header } from './components/header'
 import { Noticias } from './components/noticias'
 import { Formulario } from './components/formulario'
-import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 
 function App() {
