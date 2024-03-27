@@ -13,9 +13,14 @@ export function Extras({ id }){
         break;
 
         case 4:
-            return(
-                <a href={noticia.archive}>Descárgame</a>
-            )
+            return (
+              <a
+                className=" text-gray-500 underline underline-offset-1 tracking-[1px] hover:text-jade-600"
+                href={noticia.archive}
+              >
+                Descárgame
+              </a>
+            );
         break;
 
         default:
