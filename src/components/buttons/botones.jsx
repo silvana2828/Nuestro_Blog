@@ -1,11 +1,11 @@
-import { Boton } from "./boton";
+import { Boton1 } from "./boton1";
 export function Botones({ children, id }) {
   return (
     <div className="flex justify-center flex-col">
       <label>Ingrese un {children}:</label>
-      <Boton type="file" id={id}>
+      <Boton1 type="file" id={id}>
         Subir {children}
-      </Boton>
+      </Boton1>
     </div>
   );
 }

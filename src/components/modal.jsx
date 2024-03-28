@@ -4,7 +4,7 @@ export function Modal({ estado, cambiarEstado }) {
   return (
     <>
       {estado && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-10">
           <div className="bg-white p-5 rounded flex flex-col items-center gap-5 m-10 overflow-auto touch-auto shadow-lg shadow-indigo-500/40 w-[90%] h-[80%]">
             <div>
               <div>
@@ -49,54 +49,6 @@ export function Modal({ estado, cambiarEstado }) {
                   ipsum dolor sit, amet consectetur adipisicing elit. Possimus
                   iure porro vitae asperiores, sequi facere cupiditate? Saepe
                   reprehenderit sapi temporibus sint. amet
-                  consecteturexercitationem temporibus sint. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Possimus iure porro
-                  vitae asperiores, sequi facere cupiditate? Saepe reprehenderit
-                  sapi temporibus sint. amet consecteturexercitationem
-                  temporibus sint. Lorem ipsum dolor sit, amet consectetur
-                  adipisicing elit. Possimus iure porro vitae asperiores, sequi
-                  facere cupiditate? Saepe reprehenderit sapi temporibus sint.
-                  amet consecteturexercitationem temporibus sint. Lorem ipsum
-                  dolor sit, amet consectetur adipisicing elit. Possimus iure
-                  porro vitae asperiores, sequi facere cupiditate? Saepe
-                  reprehenderit sapi temporibus sint. amet
-                  consecteturexercitationem temporibus sint. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Possimus iure porro
-                  vitae asperiores, sequi facere cupiditate? Saepe reprehenderit
-                  sapi temporibus sint. amet consecteturexercitationem
-                  temporibus sint. Lorem ipsum dolor sit, amet consectetur
-                  adipisicing elit. Possimus iure porro vitae asperiores, sequi
-                  facere cupiditate? Saepe reprehenderit sapi temporibus sint.
-                  amet consecteturexercitationem temporibus sint. Lorem ipsum
-                  dolor sit, amet consectetur adipisicing elit. Possimus iure
-                  porro vitae asperiores, sequi facere cupiditate? Saepe
-                  reprehenderit sapi temporibus sint. amet
-                  consecteturexercitationem temporibus sint. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Possimus iure porro
-                  vitae asperiores, sequi facere cupiditate? Saepe reprehenderit
-                  sapi temporibus sint. amet consecteturexercitationem
-                  temporibus sint. Lorem ipsum dolor sit, amet consectetur
-                  adipisicing elit. Possimus iure porro vitae asperiores, sequi
-                  facere cupiditate? Saepe reprehenderit sapi temporibus sint.
-                  amet consecteturexercitationem temporibus sint. Lorem ipsum
-                  dolor sit, amet consectetur adipisicing elit. Possimus iure
-                  porro vitae asperiores, sequi facere cupiditate? Saepe
-                  reprehenderit sapi temporibus sint. amet
-                  consecteturexercitationem temporibus sint. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Possimus iure porro
-                  vitae asperiores, sequi facere cupiditate? Saepe reprehenderit
-                  sapi temporibus sint. amet consecteturexercitationem
-                  temporibus sint. Lorem ipsum dolor sit, amet consectetur
-                  adipisicing elit. Possimus iure porro vitae asperiores, sequi
-                  facere cupiditate? Saepe reprehenderit sapi temporibus sint.
-                  amet consecteturexercitationem temporibus sint. Lorem ipsum
-                  dolor sit, amet consectetur adipisicing elit. Possimus iure
-                  porro vitae asperiores, sequi facere cupiditate? Saepe
-                  reprehenderit sapi temporibus sint. amet
-                  consecteturexercitationem temporibus sint. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Possimus iure porro
-                  vitae asperiores, sequi facere cupiditate? Saepe reprehenderit
-                  sapi temporibus sint. amet consectetur
                 </p>
               </div>
             </div>
