@@ -23,7 +23,7 @@ export function Noticias() {
             return (
               <div key={noticia.id}>
                 <h1 className="text-2xl capitalize">{noticia.titule}</h1>
-                <p className="max-h-[10vh] overflow-hidden">{noticia.content}</p>
+                <p className="max-h-[7vh] overflow-hidden">{noticia.content}</p>
                 <Extras id={noticia.id} />
                 <div className="flex justify-end">
                   <Boton>Ver más</Boton>
