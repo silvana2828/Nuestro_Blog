@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Noticias />}></Route>
         <Route path="/formulario" element={<Formulario />}></Route>
         <Route path="/editar" element={<Formulario />}></Route>
+        <Route path="/modal" element={<Modal/>}></Route>
       </Routes>
     </>
   );
