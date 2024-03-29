@@ -6,7 +6,7 @@ export function Extras({ id }) {
     case 3:
       return (
         <>
-          <img src={noticia.img} alt="" />
+          <img src={noticia.image} alt="" />
           <audio className=" -z-10" src={noticia.audio} controls></audio>
         </>
       );
@@ -16,7 +16,7 @@ export function Extras({ id }) {
       return (
         <a
           className=" text-gray-500 underline underline-offset-1 tracking-[1px] hover:text-jade-600"
-          href={noticia.archive}
+          href={noticia.archivo}
         >
           Descárgame
         </a>
