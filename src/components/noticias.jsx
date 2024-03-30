@@ -1,32 +1,37 @@
 import { Extras } from "./extras";
 import { Boton } from "./buttons/boton";
-import { useState } from "react";
+import { useNoticiaContext } from "../providers/noticiaProvider";
 
-export function Noticias({ noticias }) {
+export function Noticias() {
 
-  const noticiaP = noticias[0];
+  //extraemos las noticas del useNoticiaContext
+  const noticias = useNoticiaContext()
 
-  const [noticiaE, setNoticiaE] = useState(noticias)
-  
+
+  //validamos si hay noticias 
+  //para mostrarla en la modal teniendo en cuenta la extructura que tienes
+  //primero le pasamos el id de la noticia al boton mediante props
+  //luego la recuperamos en el componente boton
   return (
     <>
+      {noticias.length === 0 && <div><h1>No hay noticias en el momento</h1></div>}
       {
-        noticias.length === 0 
-        ? <div><h1>No hay noticias en el momento</h1></div> 
-        : <div className="flex justify-between mx-6 mt-6 font-serif gap-5 snap-none">
+        noticias.length >= 1 &&
+        noticias?.slice(0, 1).map((noticia) => (
+          <div key={noticia.id} className="flex justify-between mx-6 mt-6 font-serif gap-5 snap-none">
             <div
               className=" border-2 w-[150vh] max-h-[80vh] bg-white shadow-lg shadow-indigo-500/40 p-5  overflow-hidden text-ellipsis"
-              key={noticiaP.id}
+              key={noticia.id}
             >
               <h1 className="text-4xl capitalize text-center mb-3">
-                {noticiaP.titulo}
+                {noticia.titulo}
               </h1>
-              <img className="float-right w-[30vh] rounded-lg" src={noticiaP.image} alt="" />
-              <p className="max-h-[50vh] overflow-hidden">{noticiaP.contenido}</p>
-              <Boton noticias={noticiaP.id}>Ver más</Boton>
+              <img className="float-right w-[30vh] rounded-lg" src={noticia.image} alt="" />
+              <p className="max-h-[50vh] overflow-hidden">{noticia.contenido}</p>
+              <Boton noticia={noticia.id}>Ver más</Boton>
             </div>
             <div className="w-[150vh] flex flex-col gap-5  border-2 bg-white shadow-lg shadow-indigo-500/40 p-5">
-              {noticias.map((noticia) => {
+              {noticias.slice(1).map((noticia) => {
                 if (noticia.id != 1) {
                   return (
                     <div key={noticia.id}>
@@ -42,6 +47,8 @@ export function Noticias({ noticias }) {
               })}
             </div>
           </div>
+        ))
+
       }
     </>
   );
