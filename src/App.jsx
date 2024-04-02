@@ -4,7 +4,7 @@ import { Formulario } from "./components/formulario";
 import { Routes, Route } from "react-router-dom";
 import { Modal } from "./components/modal";
 
-import { NoticiaProvider} from "./providers/noticiaProvider";
+import { NoticiaProvider } from "./providers/noticiaProvider";
 
 function App() {
   // Insertar noticias al blog

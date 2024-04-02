@@ -25,6 +25,12 @@ export const useCrearNoticiaContext = () => {
 //a los valores que este provee
 export function NoticiaProvider({ children }) {
 
+    const [id, setId] = useState(1);
+
+    const ChangeId = () => {
+        setId(id+1);
+    }
+
     //creamos el estado de las noticias 
     //con una noticia inicial
     const [noticias, setNoticias] = useState([
@@ -42,13 +48,14 @@ export function NoticiaProvider({ children }) {
     //una data la cual se obtiene mediante 'register'
     //del useForm
     const guardarNoticia = data => {
+        ChangeId()
         const nuevaNoticia = {
-            id: 4,
+            id: id,
             titulo: data.titulo,
             contenido: data.contenido,
-            image: "",
-            audio: "",
-            archivo: ""
+            image: data.image,
+            audio: data.audio,
+            archivo: data.archivo
         }
 
         //agregamos la nueva noticia
