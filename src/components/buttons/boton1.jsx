@@ -6,7 +6,7 @@ export function Boton1({ children, name, handleFileChange }) {
           type="file"
           className="hidden"
           name={name}
-          onChange={handleFileChange}
+          onChange={(e) => handleFileChange(e)}
         />
         {children}
       </label>

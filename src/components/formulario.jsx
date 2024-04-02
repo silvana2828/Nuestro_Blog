@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form"
-
 import { useCrearNoticiaContext } from "../providers/noticiaProvider";
 import { Botones } from "./buttons/botones";
+import { data } from "autoprefixer";
+import { useImageURL } from "./buttons/useImageURL";
+
 
 export const Formulario = () => {
 
@@ -40,9 +42,12 @@ export const Formulario = () => {
         placeholder="Ingresa el contenido de tu post"
       ></textarea>
       <div className="flex justify-between w-full">
-        <Botones id="image">Imagen</Botones>
+        {/* <Botones id="image">Imagen</Botones>
         <Botones id="audio">Audio</Botones>
-        <Botones id="archive">Archivo</Botones>
+        <Botones id="archivo">Archivo</Botones> */}
+        <input type="file" {...register('image')} onChange={() => useImageURL}/>
+        <input type="file" {...register('audio')}/>
+        <input type="file" {...register('archivo')}/>
       </div>
       <button
         className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white"

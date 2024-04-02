@@ -8,6 +8,7 @@ export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSelecciona
 
   const noticiaInfo = noticias.find((noticia) => noticia.id == noticiaSeleccionada)
   console.log(noticiaInfo)
+  
   return (
     <>
       {estado && (
@@ -19,7 +20,7 @@ export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSelecciona
                   <Link to="/editar">
                     <button 
                       className="border-2 p-2 rounded-lg hover:border-jade-500"
-                      onClick={() => setEditNoticia({})}
+                      onClick={() => setEditNoticia({noticiaInfo})}
                     >
                       Editar
                     </button>
@@ -41,7 +42,7 @@ export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSelecciona
                 <h1 className="text-3xl"></h1>
                 <img
                   className="w-[60vh] rounded-xl"
-                  src=""
+                  src={noticiaInfo.image}
                 />
                 <p>
                   {noticiaInfo.titulo}

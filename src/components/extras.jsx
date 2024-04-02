@@ -1,7 +1,12 @@
-import { noticias } from "./noticias.json";
+// import { noticias } from "./noticias.json";
+import { useNoticiaContext } from "../providers/noticiaProvider";
 
 export function Extras({ id }) {
+
+  const noticias = useNoticiaContext();
+
   const noticia = noticias.find((noticia) => noticia.id == id);
+  
   switch (id) {
     case 3:
       return (
