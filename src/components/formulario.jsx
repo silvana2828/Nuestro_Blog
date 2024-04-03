@@ -1,17 +1,11 @@
 import { useForm } from "react-hook-form"
 import { useCrearNoticiaContext } from "../providers/noticiaProvider";
-import { Botones } from "./buttons/botones";
-import { data } from "autoprefixer";
-import { useImageURL } from "./buttons/useImageURL";
-
-
 export const Formulario = () => {
 
   //uso use Form para simplificar la extraccion de datos
   const { register, handleSubmit } = useForm()
-  
+  const { guardarNoticia, handleImage, handleContent } = useCrearNoticiaContext();
   //extraigo la funcion 'guardarNoticia' de useCrearNoticiaContext
-  const guardarNoticia = useCrearNoticiaContext()
 
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
@@ -45,8 +39,8 @@ export const Formulario = () => {
         {/* <Botones id="image">Imagen</Botones>
         <Botones id="audio">Audio</Botones>
         <Botones id="archivo">Archivo</Botones> */}
-        <input type="file" {...register('image')} onChange={() => useImageURL}/>
-        <input type="file" {...register('audio')}/>
+        <input type="file" {...register('image')} onChange={(e) => handleImage(e)}/>
+        <input type="file" {...register('audio')} onChange={(e) => handleContent(e)} />
         <input type="file" {...register('archivo')}/>
       </div>
       <button
