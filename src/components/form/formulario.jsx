@@ -41,13 +41,20 @@ export const Formulario = () => {
         rows="8"
         placeholder="Ingresa el contenido de tu post"
       ></textarea>
-      <div className="flex flex-col justify-between w-full">
+      <div className="flex justify-between p-3">
         {/* <Botones id="image">Imagen</Botones>
         <Botones id="audio">Audio</Botones>
         <Botones id="archivo">Archivo</Botones> */}
-        <input type="file" {...register('image')} onChange={(e) => handleImage(e)}/>
-        <input type="file" {...register('archivo')} onChange={(e) => handleContent(e)}/>
-        <input type="file" {...register('audio')} onChange={(e) => handleAudio(e)}/>
+        <label className=" cursor-pointer bg-slate-300 rounded-lg p-2 hover:bg-blue-500 hover:text-white">
+        Ingrese una imagen
+        <input type="file" className="hidden" {...register('image')} onChange={(e) => handleImage(e)}/>
+        </label>
+        <label className=" cursor-pointer bg-slate-300 rounded-lg p-2 hover:bg-blue-500 hover:text-white">
+        Ingrese un archivo
+        <input type="file" className="hidden" {...register('archivo')} onChange={(e) => handleContent(e)}/></label>
+        <label className=" cursor-pointer bg-slate-300 rounded-lg p-2 hover:bg-blue-500 hover:text-white">
+        Ingrese un archivo
+        <input type="file" className="hidden" {...register('audio')} onChange={(e) => handleAudio(e)}/></label>
       </div>
       <button
         className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white"
