@@ -34,11 +34,12 @@ export function Noticias() {
             <div className="w-[150vh] flex flex-col gap-5  border-2 bg-white shadow-lg shadow-indigo-500/40 p-5">
               {noticias.slice(1).map((noticia) => {
                 if (noticia.id != 1) {
+                  const indice = noticias.indexOf(noticia);
                   return (
                     <div key={noticia.id}>
                       <h1 className="text-2xl capitalize">{noticia.titulo}</h1>
                       <p className="max-h-[7vh] overflow-hidden">{noticia.contenido}</p>
-                      <Extras id={noticia.id} />
+                      <Extras id={noticia.id} indice={indice} />
                       <div className="flex justify-end">
                         <Boton noticia={noticia.id}>Ver más</Boton>
                       </div>

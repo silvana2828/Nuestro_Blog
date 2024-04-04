@@ -1,14 +1,14 @@
 // import { noticias } from "./noticias.json";
 import { useNoticiaContext } from "../providers/noticiaProvider";
 
-export function Extras({ id }) {
+export function Extras({ id , indice }) {
 
   const noticias = useNoticiaContext();
 
   const noticia = noticias.find((noticia) => noticia.id == id);
 
-  switch (id) {
-    case 3:
+  switch (indice) {
+    case 2:
       return (
         <>
           <img src={noticia.image} alt="" />
@@ -17,7 +17,7 @@ export function Extras({ id }) {
       );
       break;
 
-    case 4:
+    case 3:
       return (
         <a
           className=" text-gray-500 underline underline-offset-1 tracking-[1px] hover:text-jade-600"

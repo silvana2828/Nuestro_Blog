@@ -29,7 +29,7 @@ export const FormularioEdit = () => {
     >
       <h2 className="text-center text-3xl mb-2 mt-4">--Nuestro Blog--</h2>
       <p className="mb-3 text-xl">Ingresa tu Post</p>
-      <input type="number" className="hidden" {...register('id')} defaultValue={noticiaInfo?.id}/>
+      <input type="text" className="hidden" {...register('id')} defaultValue={noticiaInfo?.id}/>
       <label className="mb-1">Título:</label>
       <textarea
         type="text"
@@ -50,12 +50,9 @@ export const FormularioEdit = () => {
         defaultValue={noticiaInfo?.contenido}
       ></textarea>
       <div className="flex flex-col justify-between w-full">
-        {/* <Botones id="image">Imagen</Botones>
-        <Botones id="audio">Audio</Botones>
-        <Botones id="archivo">Archivo</Botones> */}
         <input 
           type="file" 
-          {...register('image')}  
+          {...register('image')}
           onChange={(e) => handleImage(e)}
         />
         <input 

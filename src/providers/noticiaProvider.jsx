@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import { createContext, useState, useContext, useEffect } from 'react'
-import { useImageURL } from '../components/buttons/useImageURL'
-import { useContentURL } from '../components/buttons/useContentURL'
+import { useImageURL } from '../components/useDates/useImageURL'
+import { useContentURL } from '../components/useDates/useContentURL'
+import { useAudioURL } from '../components/useDates/useAudioURL'
 
 //creo dos contextos
 //el primero envia la informacion presente 
@@ -28,7 +29,8 @@ export const useCrearNoticiaContext = () => {
 export function NoticiaProvider({ children }) {
 
     const { imageURL, handleImage } = useImageURL();
-    const { contenidoURL, typeContent, handleContent } = useContentURL();       
+    const { contenidoURL, handleContent } = useContentURL();  
+    const { audioURL, handleAudio } = useAudioURL();     
 
     const [id, setId] = useState(1);
 
@@ -62,10 +64,8 @@ export function NoticiaProvider({ children }) {
             titulo: data.titulo,
             contenido: data.contenido,
             image: imageURL,
-            audio: data.audio,
-            typeAu: null,
+            audio: audioURL,
             archivo: contenidoURL,
-            typeA: typeContent
         }
 
         //agregamos la nueva noticia
@@ -97,7 +97,7 @@ export function NoticiaProvider({ children }) {
     //el segundo provee la funcion para guardarlas
     return (
         <noticiasContext.Provider value={noticias}>
-            <crearNoticiaContext.Provider value={{guardarNoticia, editarNoticia, handleImage, handleContent, deleteNoticias}}>
+            <crearNoticiaContext.Provider value={{guardarNoticia, editarNoticia, handleImage, handleContent, handleAudio, deleteNoticias}}>
                 {children}
             </crearNoticiaContext.Provider>
         </noticiasContext.Provider>

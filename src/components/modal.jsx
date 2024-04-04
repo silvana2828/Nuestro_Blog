@@ -44,14 +44,14 @@ export function Modal({ estado, cambiarEstado, noticiaSeleccionada}) {
               </div>
               <div className=" flex flex-col justify-center items-center gap-3">
                 <h1 className="text-3xl"></h1>
+                <p className="font-sans text-2xl text-emerald-600">
+                  {noticiaInfo.titulo}
+                </p>
                 <img
                   className="w-[60vh] rounded-xl"
                   src={noticiaInfo.image}
                 />
-                <p>
-                  {noticiaInfo.titulo}
-                </p>
-                <p>
+                <p className="w-[80%] mb-[2vh] mt-[3vh] text-center">
                   {noticiaInfo.contenido}
                 </p>
                 <audio src={noticiaInfo.audio} controls></audio>

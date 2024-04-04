@@ -8,7 +8,7 @@ export const Formulario = () => {
   const { register, handleSubmit } = useForm()
   
   //extraigo la funcion 'guardarNoticia' de useCrearNoticiaContext
-  const { guardarNoticia, handleImage, handleContent } = useCrearNoticiaContext();
+  const { guardarNoticia, handleImage, handleContent, handleAudio } = useCrearNoticiaContext();
 
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
@@ -44,7 +44,7 @@ export const Formulario = () => {
         <Botones id="archivo">Archivo</Botones> */}
         <input type="file" {...register('image')} onChange={(e) => handleImage(e)}/>
         <input type="file" {...register('archivo')} onChange={(e) => handleContent(e)}/>
-        <input type="file" {...register('audio')}/>
+        <input type="file" {...register('audio')} onChange={(e) => handleAudio(e)}/>
       </div>
       <button
         className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white"

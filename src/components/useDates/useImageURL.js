@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useImageURL = () => {
     const [image, setImage] = useState(null);
-    const [imageURL, setImageURL] = useState(null)
+    const [imageURL, setImageURL] = useState(null);
 
     const handleImage = (e) => {
         const newImage = e.target.files[0]
