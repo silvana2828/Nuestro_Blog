@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useImageURL = () => {
     const [image, setImage] = useState(null);
-    const [imageURL, setImageURL] = useState(null);
+    const [imageURL, setImageURL] = useState(null)
 
     const handleImage = (e) => {
         const newImage = e.target.files[0]
@@ -17,6 +17,7 @@ export const useImageURL = () => {
                 setImageURL(imageURL);
             }
             renderImage.readAsDataURL(image);
+            console.log("imagen renderizada")
         }else{
             setImage(null);
         }

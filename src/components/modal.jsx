@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { useNoticiaContext } from "../providers/noticiaProvider";
+import { useCrearNoticiaContext, useNoticiaContext } from "../providers/noticiaProvider";
 
-export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSeleccionada}) {
+export function Modal({ estado, cambiarEstado, noticiaSeleccionada}) {
 
   //en noticia seleccionada se encuentra el id de la noticia 
   const noticias = useNoticiaContext()
+
+  const { deleteNoticias } = useCrearNoticiaContext();
 
   const noticiaInfo = noticias.find((noticia) => noticia.id == noticiaSeleccionada)
   console.log(noticiaInfo)
@@ -17,15 +19,17 @@ export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSelecciona
             <div>
               <div>
                 <div className="flex justify-end gap-5">
-                  <Link to="/editar">
+                  <Link to={`/editar/${noticiaInfo.id}`}>
                     <button 
                       className="border-2 p-2 rounded-lg hover:border-jade-500"
-                      onClick={() => setEditNoticia({noticiaInfo})}
                     >
                       Editar
                     </button>
                   </Link>
-                  <button className="border-2 p-2 rounded-lg hover:border-red-600">
+                  <button 
+                    className="border-2 p-2 rounded-lg hover:border-red-600"
+                    onClick= {() => deleteNoticias(noticiaInfo.id)}
+                  >
                     Borrar
                   </button>
                   <button
@@ -50,6 +54,8 @@ export function Modal({ estado, cambiarEstado, setEditNoticia, noticiaSelecciona
                 <p>
                   {noticiaInfo.contenido}
                 </p>
+                <audio src={noticiaInfo.audio} controls></audio>
+                <a href={noticiaInfo.archivo}>Contenido Descargable</a>
               </div>
             </div>
           </div>
