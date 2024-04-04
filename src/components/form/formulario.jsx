@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useCrearNoticiaContext } from "../../providers/noticiaProvider";
+import { useNavigate } from "react-router-dom";
 
 
 export const Formulario = () => {
@@ -13,6 +14,8 @@ export const Formulario = () => {
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
   //guardarNoticia mediante el handleSubmit
+
+  const navigate = useNavigate();
    
   return (
     <form

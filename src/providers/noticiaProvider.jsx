@@ -3,6 +3,8 @@ import { createContext, useState, useContext, useEffect } from 'react'
 import { useImageURL } from '../components/useDates/useImageURL'
 import { useContentURL } from '../components/useDates/useContentURL'
 import { useAudioURL } from '../components/useDates/useAudioURL'
+import { useNavigate } from 'react-router-dom'
+
 
 //creo dos contextos
 //el primero envia la informacion presente 
@@ -31,6 +33,8 @@ export function NoticiaProvider({ children }) {
     const { imageURL, handleImage } = useImageURL();
     const { contenidoURL, handleContent } = useContentURL();  
     const { audioURL, handleAudio } = useAudioURL();     
+
+    const navigate = useNavigate()
 
     const [id, setId] = useState(1);
 
@@ -72,13 +76,33 @@ export function NoticiaProvider({ children }) {
         setNoticias([...noticias, nuevaNoticia])
         handleImage({ target: { files: []}});
         handleContent({ target: { files: []}});
+
+        navigate('/')
     }
 
 
     // Creamos la función para editar la noticia 
-    const editarNoticia = (data) => {
-        const newNoticias = noticias.map(el => el.id == data.id ? data : el)
-        setNoticias(newNoticias)
+    const editarNoticia = (data, id) => {
+        const updateNoticias = noticias.map(newItem => {
+            if (newItem.id == id) {
+                return {
+                    ...newItem,
+                    id: Date.now,
+                    titulo: data.titulo,
+                    contenido: data.contenido,
+                    image: !imageURL ? newItem.image : imageURL,
+                    archivo: !contenidoURL ? newItem.archivo : contenidoURL,
+                    audio: !audioURL ? newItem.audio : audioURL
+                }
+            } else {
+                return newItem
+            }
+        })
+
+        setNoticias(updateNoticias)
+        localStorage.setItem('Noticias', JSON.stringify(updateNoticias))
+
+        navigate('/')
     }
 
     // Creamos la función para eliminar las noticias 

@@ -16,7 +16,11 @@ export const FormularioEdit = () => {
   const noticiaInfo = noticias.find((noticia) => noticia.id == id)
   
   //extraigo la funcion 'guardarNoticia' de useCrearNoticiaContext
-  const { editarNoticia, handleImage, handleContent } = useCrearNoticiaContext();
+  const { editarNoticia, handleImage, handleContent, handleAudio } = useCrearNoticiaContext();
+
+  const handleEdit = (data) =>{
+    editarNoticia(data, id)
+  } 
 
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
@@ -25,7 +29,7 @@ export const FormularioEdit = () => {
   return (
     <form
       className="flex flex-col font-serif  w-[110vh] m-auto p-4 rounded-md mt-3 bg-jade-500/10"
-      onSubmit={handleSubmit(editarNoticia)}
+      onSubmit={handleSubmit(handleEdit)}
     >
       <h2 className="text-center text-3xl mb-2 mt-4">--Nuestro Blog--</h2>
       <p className="mb-3 text-xl">Ingresa tu Post</p>
@@ -50,7 +54,7 @@ export const FormularioEdit = () => {
         defaultValue={noticiaInfo?.contenido}
       ></textarea>
       <div className="flex flex-col justify-between w-full">
-        <input 
+        <label
           type="file" 
           {...register('image')}
           onChange={(e) => handleImage(e)}
@@ -63,6 +67,7 @@ export const FormularioEdit = () => {
         <input 
           type="file" 
           {...register('audio')}
+          onChange={(e) => handleAudio(e)}
         />
       </div>
       <button
