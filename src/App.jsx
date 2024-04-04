@@ -4,7 +4,6 @@ import { Formulario } from "./components/form/formulario";
 import { FormularioEdit } from "./components/form/formularioEdit";
 import { Routes, Route } from "react-router-dom";
 import { Modal } from "./components/modal";
-
 import { NoticiaProvider } from "./providers/noticiaProvider";
 
 function App() {

@@ -24,7 +24,7 @@ export function Noticias() {
               className=" border-2 w-[150vh] max-h-[80vh] bg-white shadow-lg shadow-indigo-500/40 p-5  overflow-hidden text-ellipsis"
               key={noticia.id}
             >
-              <h1 className="text-4xl capitalize text-center mb-3">
+              <h1 className="text-3xl uppercase text-center mb-3">
                 {noticia.titulo}
               </h1>
               <img className="float-right w-[30vh] rounded-lg" src={noticia.image} alt="" />

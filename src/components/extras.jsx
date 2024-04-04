@@ -12,7 +12,7 @@ export function Extras({ id }) {
       return (
         <>
           <img src={noticia.image} alt="" />
-          <audio className="-z-10 mt-[1vh]" src={noticia.audio} controls></audio>
+          <audio className="-z-10 mt-[1vh]" src={noticia.audio} controls id='miAudio'></audio>
         </>
       );
       break;
