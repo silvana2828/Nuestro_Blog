@@ -6,18 +6,18 @@ export const useContentURL = () => {
     const [contenidoURL, setContenidoURL] = useState(null)
 
     const handleContent = (e) => {
-        const newContenidoA = e.target.files[0]
-        setContenido(newContenidoA)
+        const newContenido = e.target.files[0]
+        setContenido(newContenido)
     }
 
     if(contenido) {
-        const renderContenidoA = new FileReader();
-        renderContenidoA.onload = () => {
-            const contenidoURL = renderContenidoA.result
+        const renderContenido = new FileReader();
+        renderContenido.onload = () => {
+            const contenidoURL = renderContenido.result
             setTypeContent(contenido.type)
             setContenidoURL(contenidoURL)
         }
-        renderContenidoA.readAsDataURL(contenido)
+        renderContenido.readAsDataURL(contenido)
     }
 
     console.log("Archivo Renderizado")

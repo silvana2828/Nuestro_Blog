@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useCrearNoticiaContext } from "../../providers/noticiaProvider";
+import { useNavigate } from "react-router-dom";
 
 
 export const Formulario = () => {
@@ -8,11 +9,13 @@ export const Formulario = () => {
   const { register, handleSubmit } = useForm()
   
   //extraigo la funcion 'guardarNoticia' de useCrearNoticiaContext
-  const { guardarNoticia, handleImage, handleContent } = useCrearNoticiaContext();
+  const { guardarNoticia, handleImage, handleContent, handleAudio } = useCrearNoticiaContext();
 
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
   //guardarNoticia mediante el handleSubmit
+
+  const navigate = useNavigate();
    
   return (
     <form
@@ -41,10 +44,12 @@ export const Formulario = () => {
         placeholder="Ingresa el contenido de tu post"
       ></textarea>
       <div className="flex justify-between w-full p-3">
+
         {/* <Botones id="image">Imagen</Botones>
         <Botones id="audio">Audio</Botones>
         <Botones id="archivo">Archivo</Botones> */}
         <label className=" cursor-pointer bg-slate-300 rounded-lg p-2 hover:bg-blue-500 hover:text-white">
+
           Ingrese una imagen
           <input
             type="file"
