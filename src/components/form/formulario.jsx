@@ -1,8 +1,5 @@
 import { useForm } from "react-hook-form"
-import { useCrearNoticiaContext } from "../providers/noticiaProvider";
-import { Botones } from "./buttons/botones";
-import { data } from "autoprefixer";
-import { useImageURL } from "./buttons/useImageURL";
+import { useCrearNoticiaContext } from "../../providers/noticiaProvider";
 
 
 export const Formulario = () => {
@@ -11,7 +8,7 @@ export const Formulario = () => {
   const { register, handleSubmit } = useForm()
   
   //extraigo la funcion 'guardarNoticia' de useCrearNoticiaContext
-  const guardarNoticia = useCrearNoticiaContext()
+  const { guardarNoticia, handleImage, handleContent } = useCrearNoticiaContext();
 
   //los register obtienen informacion y la almacena en
   //un objeto luego esta se la enviamos a 
@@ -41,13 +38,13 @@ export const Formulario = () => {
         rows="8"
         placeholder="Ingresa el contenido de tu post"
       ></textarea>
-      <div className="flex justify-between w-full">
+      <div className="flex flex-col justify-between w-full">
         {/* <Botones id="image">Imagen</Botones>
         <Botones id="audio">Audio</Botones>
         <Botones id="archivo">Archivo</Botones> */}
-        <input type="file" {...register('image')} onChange={() => useImageURL}/>
+        <input type="file" {...register('image')} onChange={(e) => handleImage(e)}/>
+        <input type="file" {...register('archivo')} onChange={(e) => handleContent(e)}/>
         <input type="file" {...register('audio')}/>
-        <input type="file" {...register('archivo')}/>
       </div>
       <button
         className="bg-blue-600 hover:bg-blue-500 mt-4 p-3 rounded-lg text-white"

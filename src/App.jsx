@@ -1,6 +1,7 @@
 import { Header } from "./components/header";
 import { Noticias } from "./components/noticias";
-import { Formulario } from "./components/formulario";
+import { Formulario } from "./components/form/formulario";
+import { FormularioEdit } from "./components/form/formularioEdit";
 import { Routes, Route } from "react-router-dom";
 import { Modal } from "./components/modal";
 
@@ -29,7 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Noticias />}></Route>
           <Route path="/formulario" element={<Formulario />}></Route>
-          <Route path="/editar" element={<Formulario/>}></Route>
+          <Route path="/editar/:id" element={<FormularioEdit/>}></Route>
           <Route path="/modal" element={<Modal />}></Route>
         </Routes>
       </NoticiaProvider>

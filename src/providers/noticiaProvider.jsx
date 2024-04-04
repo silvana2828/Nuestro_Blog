@@ -1,6 +1,7 @@
-
 import PropTypes from 'prop-types'
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useEffect } from 'react'
+import { useImageURL } from '../components/buttons/useImageURL'
+import { useContentURL } from '../components/buttons/useContentURL'
 
 //creo dos contextos
 //el primero envia la informacion presente 
@@ -15,6 +16,7 @@ const crearNoticiaContext = createContext()
 export const useNoticiaContext = () => {
     return useContext(noticiasContext)
 }
+
 export const useCrearNoticiaContext = () => {
     return useContext(crearNoticiaContext)
 }
@@ -25,6 +27,9 @@ export const useCrearNoticiaContext = () => {
 //a los valores que este provee
 export function NoticiaProvider({ children }) {
 
+    const { imageURL, handleImage } = useImageURL();
+    const { contenidoURL, typeContent, handleContent } = useContentURL();       
+
     const [id, setId] = useState(1);
 
     const ChangeId = () => {
@@ -33,16 +38,19 @@ export function NoticiaProvider({ children }) {
 
     //creamos el estado de las noticias 
     //con una noticia inicial
-    const [noticias, setNoticias] = useState([
-        {
-            id: 1,
-            titulo: "Asalto",
-            contenido: "Hola como estas soy David",
-            image: "",
-            audio: "",
-            archivo: ""
-        },
-    ])
+    // y se guarda en el localStorage
+    const [noticias, setNoticias] = useState(() => {
+        const saveNoticias = window.localStorage.getItem("Noticias")
+        if (saveNoticias) {
+            return JSON.parse(saveNoticias);
+        }else{
+            return []
+        }
+    })
+
+    useEffect(() => {
+        window.localStorage.setItem("Noticias", JSON.stringify(noticias))
+    }, [noticias])  
 
     //creamos la funcion guardar noticia que recibe 
     //una data la cual se obtiene mediante 'register'
@@ -50,16 +58,37 @@ export function NoticiaProvider({ children }) {
     const guardarNoticia = data => {
         ChangeId()
         const nuevaNoticia = {
-            id: id,
+            id: Date.now(),
             titulo: data.titulo,
             contenido: data.contenido,
-            image: data.image,
+            image: imageURL,
             audio: data.audio,
-            archivo: data.archivo
+            typeAu: null,
+            archivo: contenidoURL,
+            typeA: typeContent
         }
 
         //agregamos la nueva noticia
         setNoticias([...noticias, nuevaNoticia])
+        handleImage({ target: { files: []}});
+        handleContent({ target: { files: []}});
+    }
+
+
+    // Creamos la función para editar la noticia 
+    const editarNoticia = (data) => {
+        const newNoticias = noticias.map(el => el.id == data.id ? data : el)
+        setNoticias(newNoticias)
+    }
+
+    // Creamos la función para eliminar las noticias 
+    const deleteNoticias = (id) => {
+        const isDelete = window.confirm("¿Deseas eliminar esta noticia?")
+
+        if (isDelete) {
+            const newNoticias = noticias.filter(el => el.id != id)
+            setNoticias(newNoticias)
+        }
     }
 
 
@@ -68,7 +97,7 @@ export function NoticiaProvider({ children }) {
     //el segundo provee la funcion para guardarlas
     return (
         <noticiasContext.Provider value={noticias}>
-            <crearNoticiaContext.Provider value={guardarNoticia}>
+            <crearNoticiaContext.Provider value={{guardarNoticia, editarNoticia, handleImage, handleContent, deleteNoticias}}>
                 {children}
             </crearNoticiaContext.Provider>
         </noticiasContext.Provider>

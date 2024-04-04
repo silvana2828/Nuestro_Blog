@@ -6,13 +6,13 @@ export function Extras({ id }) {
   const noticias = useNoticiaContext();
 
   const noticia = noticias.find((noticia) => noticia.id == id);
-  
+
   switch (id) {
     case 3:
       return (
         <>
           <img src={noticia.image} alt="" />
-          <audio className=" -z-10" src={noticia.audio} controls></audio>
+          <audio className="-z-10 mt-[1vh]" src={noticia.audio} controls></audio>
         </>
       );
       break;
@@ -30,6 +30,6 @@ export function Extras({ id }) {
 
     default:
       return console.log("Noticia ejercidas");
-      break;
+    break;
   }
 }

@@ -12,9 +12,10 @@ export function Noticias() {
   //para mostrarla en la modal teniendo en cuenta la extructura que tienes
   //primero le pasamos el id de la noticia al boton mediante props
   //luego la recuperamos en el componente boton
+  
   return (
     <>
-      {noticias.length === 0 && <div><h1>No hay noticias en el momento</h1></div>}
+      {noticias.length === 0 && <div className="flex flex-col w-[100%] h-[20vh] justify-center text-center   items-center text-lg"><h1 className=" text-2xl font-serif">No hay noticias en el momento</h1></div>}
       {
         noticias.length >= 1 &&
         noticias?.slice(0, 1).map((noticia) => (
